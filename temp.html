@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="temp.css">
+</head>
+<body>
+    <div class="background1">
+        <h1 class="heading">Temperature Converter</h1>
+        <div class="box background2">
+            <label for="celsius">Celsius</label>
+            <input type="number" id="celsiusInput" placeholder="Enter Celsius">
+            <button class='button' onclick="convertToFar()">Convert to Farenheit</button>
+            <button class='button' onclick="convertToKelFromCel()">Convert to Kelvin</button>
+            <label for="farenheit">Farenheit</label>
+            <input type="number" id="fahrenheitInput" placeholder="Enter Fahrenheit">
+            <button class='button' onclick="convertToCel()">Convert to Celsius</button>
+            <button class='button' onclick="convertToKelFromFahrenheit()">Convert to Kelvin</button>
+            <label for="kelvin">Kelvin</label>
+            <input type="number" id="kelvinInput" placeholder="Enter Kelvin">
+            <button class='button' onclick="convertToCelFromKelvin()">Convert to Celsius</button>
+            <button class='button' onclick="convertToFarFromKelvin()">Convert to Farenheit</button>
+            <div id="result"></div>
+        </div>
+        <script>
+            function convertToFar() {
+                var celsius = parseFloat(document.getElementById('celsiusInput').value);
+                var fahrenheit = (celsius * 9/5) + 32;
+                document.getElementById('result').innerText = celsius + "°C = " + fahrenheit.toFixed(2) + "°F";
+            }
+        
+            function convertToCel() {
+                var fahrenheit = parseFloat(document.getElementById('fahrenheitInput').value);
+                var celsius = (fahrenheit - 32) * 5/9;
+                document.getElementById('result').innerText = fahrenheit + "°F = " + celsius.toFixed(2) + "°C";
+            }
+        
+            function convertToCelFromKelvin() {
+                var kelvin = parseFloat(document.getElementById('kelvinInput').value);
+                var celsius = kelvin - 273.15;
+                document.getElementById('result').innerText = kelvin + "K = " + celsius.toFixed(2) + "°C";
+            }
+        
+            function convertToKelFromCel() {
+                var celsius = parseFloat(document.getElementById('celsiusInput').value);
+                var kelvin = celsius + 273.15;
+                document.getElementById('result').innerText = celsius + "°C = " + kelvin.toFixed(2) + "K";
+            }
+
+            function convertToKelFromFahrenheit() {
+                var fahrenheit = parseFloat(document.getElementById('fahrenheitInput').value);
+                var celsius = (fahrenheit - 32) * 5/9;
+                var kelvin = celsius + 273.15;
+                document.getElementById('result').innerText = fahrenheit + "°F = " + kelvin.toFixed(2) + "K";
+            }
+
+            function convertToFarFromKelvin() {
+                var kelvin = parseFloat(document.getElementById('kelvinInput').value);
+                var celsius = kelvin - 273.15;
+                var fahrenheit = (celsius * 9/5) + 32;
+                document.getElementById('result').innerText = kelvin + "K = " + fahrenheit.toFixed(2) + "°F";
+            }
+        </script>
+    </div>
+</body>
+</html>
